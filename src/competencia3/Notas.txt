@@ -1,0 +1,6 @@
+Training strategy: Establecer que va a ser training, validation y testing. En los scripts de la catedra tenemos tres meses de train (enero, febrero, marzo) abril para la validacion y mayo como test.
+Al achicar el dataser puedo usar, Sampling_total o Undersampling_continua.
+El min_data_in_leaf debe ser tomado como un valor absoluto del dataset (mdil/cantidad de registros)
+En el script esta la variable con un logaritmo.
+Para que los hiperparametros tengan sentido con undersampling podriamos hacer algo asi:
+Min_data_in_leaf 50%xDataset -> num_leaves 50%(dataset/Min_data_in_leaf)
