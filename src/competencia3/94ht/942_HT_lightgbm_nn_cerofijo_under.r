@@ -3,7 +3,7 @@
 # 256 GB de espacio en el disco local
 #   8 vCPU
 
-# pensado para datasets con UNDERSAPLING de la clase mayoritaria apliamos el dataset al 30%
+# pensado para datasets con UNDERSAPLING de la clase mayoritaria apliamos el dataset al 50%
 
 # limpio la memoria
 rm(list = ls()) # remove all objects
@@ -21,9 +21,9 @@ require("mlrMBO")
 
 # Parametros del script
 PARAM <- list()
-PARAM$experimento <- "HT9274"
+PARAM$experimento <- "HT9275"
 
-PARAM$exp_input <- "TS9274"
+PARAM$exp_input <- "TS9275"
 # FIN Parametros del script
 
 
