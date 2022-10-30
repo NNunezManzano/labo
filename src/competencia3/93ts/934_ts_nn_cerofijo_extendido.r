@@ -15,20 +15,20 @@ require("data.table")
 
 # Parametros del script
 PARAM <- list()
-PARAM$experimento <- "TS9277"
+PARAM$experimento <- "TS9278"
 
 PARAM$exp_input <- "FE9270"
 
 PARAM$future <- c(202107)
 
-PARAM$final_train <- c(202009, 202010, 202011, 202012, 202101, 202102, 202103, 202104, 202105)
+PARAM$final_train <- c(202006, 202007, 202008, 202009, 202010, 202011, 202012, 202101, 202102, 202103, 202104, 202105)
 
-PARAM$train$training <- c(202007, 202008, 202009, 202010, 202011, 202012, 202101, 202102, 202103)
+PARAM$train$training <- c(202004, 202005, 202006, 202007, 202008, 202009, 202010, 202011, 202012, 202101, 202102, 202103)
 PARAM$train$validation <- c(202104)
 PARAM$train$testing <- c(202105)
 
 PARAM$train$sampling_total <- 1.0 # 1.0 significa que NO se hace sampling total,  0.3 es quedarse con el 30% de TODOS los registros
-PARAM$train$undersampling_mayoritaria <- 0.7 # 1.0 significa NO undersampling ,  0.1  es quedarse con el 10% de los CONTINUA
+PARAM$train$undersampling_mayoritaria <- 0.5 # 1.0 significa NO undersampling ,  0.1  es quedarse con el 10% de los CONTINUA
 
 # Atencion, las semillas deben ser distintas
 PARAM$train$semilla_sampling <- 103319
