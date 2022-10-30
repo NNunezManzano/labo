@@ -167,8 +167,8 @@ for (i in 1:PARAM$modelos)
 
   # genero los archivos para Kaggle
   cortes <- seq(
-    from = 7000,
-    to = 11000,
+    from = 8000,
+    to = 14000,
     by = 500
   )
 
