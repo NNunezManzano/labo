@@ -283,7 +283,7 @@ Corregir_MachineLearning  <- function( dataset )
 #Aqui empieza el programa
 
 #setwd( "~/buckets/b1/" )
-setwd("D:/economia_finanzas")
+setwd("~/buckets/b1/")
 #cargo el dataset
 dataset  <- fread( PARAM$dataset )
 
@@ -862,7 +862,7 @@ CanaritosAsesinos  <- function( canaritos_ratio=0.2 )
 #Aqui empieza el programa
 
 #setwd( "~/buckets/b1/" )
-setwd("D:/economia_finanzas") 
+setwd("~/buckets/b1/") 
 
 
 #cargo el dataset donde voy a entrenar
