@@ -92,7 +92,7 @@ variables_drift_pesos <- c("mrentabilidad","mrentabilidad_annual","mcomisiones",
 
 #Parametros del script
 PARAM  <- list()
-PARAM$experimento  <- "ECCA9060"
+PARAM$experimento  <- "ECCA9061"
 PARAM$dataset  <- "./datasets/competencia3_2022.csv.gz"
 
 PARAM$metodo  <- "MachineLearning"     #valores posibles  "MachineLearning"  "EstadisticaClasica"
@@ -328,9 +328,9 @@ fwrite( dataset,
 
 #Parametros del script
 PARAM  <- list()
-PARAM$experimento  <- "ECDR9141"
+PARAM$experimento  <- "ECDR9142"
 
-PARAM$exp_input  <- "ECCA9060"
+PARAM$exp_input  <- "ECCA9061"
 
 #valores posibles  "ninguno" "rank_simple" , "rank_cero_fijo" , "deflacion"
 PARAM$metodo  <- "rank_cero_fijo"
@@ -571,15 +571,15 @@ require("lightgbm")
 
 #Parametros del script
 PARAM  <- list()
-PARAM$experimento <- "ECFE9250"
+PARAM$experimento <- "ECFE9251"
 
-PARAM$exp_input  <- "ECDR9141"
+PARAM$exp_input  <- "ECDR9142"
 
 PARAM$lag1  <- TRUE
 PARAM$lag2  <- TRUE
 PARAM$Tendencias  <- TRUE
 PARAM$RandomForest  <- FALSE          #No se puede poner en TRUE para la entrega oficial de la Tercera Competencia
-PARAM$CanaritosAsesinos  <- TRUE
+PARAM$CanaritosAsesinos  <- FALSE
 # FIN Parametros del script
 
 #------------------------------------------------------------------------------

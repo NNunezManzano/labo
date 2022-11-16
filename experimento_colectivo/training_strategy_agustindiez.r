@@ -20,9 +20,9 @@ semillas <- c(
 
 # Parametros del script
 PARAM <- list()
-PARAM$experimento <- "TS9320_TRAINING20192021"
+PARAM$experimento <- "TS9321_TRAINING20192021"
 
-PARAM$exp_input <- "ECFE9250"
+PARAM$exp_input <- "ECFE9251"
 
 PARAM$future <- c(202107)
 
