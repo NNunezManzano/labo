@@ -386,7 +386,7 @@ setorder(dataset, numero_de_cliente, foto_mes)
 if (PARAM$Tendencias) {
   TendenciaYmuchomas(dataset,
     cols = cols_lagueables,
-    ventana = 6, # 6 meses de historia
+    ventana = 4, # 4 meses de historia
     tendencia = TRUE,
     minimo = FALSE,
     maximo = FALSE,
