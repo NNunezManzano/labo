@@ -21,7 +21,7 @@ require("lightgbm")
 PARAM <- list()
 PARAM$experimento <- "FE1003"
 
-PARAM$exp_input <- "DDDEF"
+PARAM$exp_input <- "DD0FNN"
 
 PARAM$lag1 <- TRUE
 PARAM$lag2 <- TRUE
@@ -386,7 +386,7 @@ setorder(dataset, numero_de_cliente, foto_mes)
 if (PARAM$Tendencias) {
   TendenciaYmuchomas(dataset,
     cols = cols_lagueables,
-    ventana = 6, # 6 meses de historia
+    ventana = 5, # 5 meses de historia
     tendencia = TRUE,
     minimo = FALSE,
     maximo = FALSE,
