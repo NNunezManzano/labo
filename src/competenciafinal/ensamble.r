@@ -6,9 +6,8 @@ require("data.table")
 
 # Parametros del script
 PARAM <- list()
-PARAM$experimento <- "1004"
+PARAM$experimentos <- c("1001", "1002", "1003", "1004")
 PARAM$path <- "./exp/Semillerio/"
-PARAM$cantidad_semillas <- 20
 
 options(error = function() {
     traceback(20)
@@ -19,33 +18,29 @@ options(error = function() {
 setwd("~/Documents/Facu/1-Maestria/DMEF")
 
 
-semillerio <- function(semillas) {
-    for (i in 1:PARAM$cantidad_semillas)
+ensamble <- function() {
+    for (experimento in PARAM$experimentos)
     {
-        semilla <- semillas[i]
+        dataset <- fread(paste0(PARAM$path, experimento, "/promedio_modelo", experimento, ".csv"))
 
-        dataset <- fread(paste0(PARAM$path, PARAM$experimento, "/exp_ZZ", PARAM$experimento, "_ZZ", PARAM$experimento, "_", semilla, "_resultados.csv"))
-
-        dataset_base <- dataset_base[, paste0("prob", semilla) := dataset[, .(prob)]]
+        dataset_base <- dataset_base[, paste0("prob_", experimento) := dataset[, .(Predicted)]]
     }
 }
 
-semillas <- fread(paste0(PARAM$path, PARAM$experimento, "/exp_ZZ", PARAM$experimento, "_ksemillas.csv"))
-
-dataset_base <- fread(paste0(PARAM$path, PARAM$experimento, "/exp_ZZ", PARAM$experimento, "_ZZ", PARAM$experimento, "_", semillas[1], "_resultados.csv"))
+dataset_base <- fread(paste0(PARAM$path, PARAM$experimentos[1], "/promedio_modelo", PARAM$experimentos[1], ".csv"))
 
 dataset_base <- dataset_base[, .(numero_de_cliente)]
 
-semillerio(semillas)
+ensamble()
 
 
 fwrite(dataset_base,
-    file = paste0(PARAM$path, PARAM$experimento, "/semillerio_modelo", PARAM$experimento, ".csv"),
+    file = paste0(PARAM$path, "/ensamble_modelos.csv"),
     sep = ","
 )
 
 fwrite(dataset_base[, .(Predicted = rowMeans(.SD)), by = numero_de_cliente],
-    file = paste0(PARAM$path, PARAM$experimento, "/promedio_modelo", PARAM$experimento, ".csv"),
+    file = paste0(PARAM$path, "/promedio_modelos.csv"),
     sep = ","
 )
 
@@ -54,7 +49,7 @@ dataset_pred <- dataset_base[, .(Predicted = rowMeans(.SD)), by = numero_de_clie
 
 
 cortes <- seq(
-    from = 10000,
+    from = 9500,
     to = 14000,
     by = 500
 )
@@ -69,10 +64,7 @@ for (corte in cortes)
 
     nom_submit <- paste0(
         PARAM$path,
-        PARAM$experimento,
-        "/modelo_",
-        PARAM$experimento,
-        "_",
+        "/ensamble_prob_",
         sprintf("%05d", corte),
         ".csv"
     )
